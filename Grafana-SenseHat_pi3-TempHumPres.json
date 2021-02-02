@@ -17,7 +17,7 @@
   "gnetId": 4934,
   "graphTooltip": 0,
   "id": 4,
-  "iteration": 1612251203076,
+  "iteration": 1612282915074,
   "links": [],
   "panels": [
     {
@@ -561,13 +561,14 @@
         "#299c46"
       ],
       "datasource": "Influx-SenseHat",
+      "decimals": 4,
       "fieldConfig": {
         "defaults": {
           "custom": {}
         },
         "overrides": []
       },
-      "format": "none",
+      "format": "pressurembar",
       "gauge": {
         "maxValue": 1100,
         "minValue": 0,
@@ -995,5 +996,5 @@
   "timezone": "browser",
   "title": "SenseHAT",
   "uid": "wSMs7Qekk",
-  "version": 7
+  "version": 8
 }
