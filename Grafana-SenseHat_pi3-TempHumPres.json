@@ -17,7 +17,7 @@
   "gnetId": 4934,
   "graphTooltip": 0,
   "id": 4,
-  "iteration": 1612341023095,
+  "iteration": 1612434434879,
   "links": [],
   "panels": [
     {
@@ -780,7 +780,7 @@
           "label": null,
           "logBase": 1,
           "max": "1010",
-          "min": "1005",
+          "min": "990",
           "show": true
         },
         {
@@ -996,5 +996,5 @@
   "timezone": "browser",
   "title": "SenseHAT",
   "uid": "wSMs7Qekk",
-  "version": 10
+  "version": 11
 }
