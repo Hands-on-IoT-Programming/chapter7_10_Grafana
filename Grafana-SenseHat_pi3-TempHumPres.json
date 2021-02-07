@@ -561,7 +561,7 @@
         "#299c46"
       ],
       "datasource": "Influx-SenseHat",
-      "decimals": 4,
+      "decimals": 0,
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -965,7 +965,7 @@
     ]
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {
@@ -996,5 +996,5 @@
   "timezone": "browser",
   "title": "SenseHAT",
   "uid": "wSMs7Qekk",
-  "version": 12
+  "version": 13
 }
