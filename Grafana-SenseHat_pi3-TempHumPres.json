@@ -17,7 +17,7 @@
   "gnetId": 4934,
   "graphTooltip": 0,
   "id": 4,
-  "iteration": 1612434434879,
+  "iteration": 1612689603236,
   "links": [],
   "panels": [
     {
@@ -288,7 +288,7 @@
           "label": "",
           "logBase": 1,
           "max": "30",
-          "min": "25",
+          "min": "19",
           "show": true
         },
         {
@@ -532,7 +532,7 @@
           "format": "short",
           "label": null,
           "logBase": 1,
-          "max": "60",
+          "max": "80",
           "min": "40",
           "show": true
         },
@@ -541,7 +541,7 @@
           "format": "short",
           "label": null,
           "logBase": 1,
-          "max": "60",
+          "max": "80",
           "min": "40",
           "show": true
         }
@@ -965,7 +965,7 @@
     ]
   },
   "time": {
-    "from": "now-2d",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {
@@ -996,5 +996,5 @@
   "timezone": "browser",
   "title": "SenseHAT",
   "uid": "wSMs7Qekk",
-  "version": 11
+  "version": 12
 }
