@@ -17,7 +17,7 @@
   "gnetId": 4934,
   "graphTooltip": 0,
   "id": 4,
-  "iteration": 1629026950627,
+  "iteration": 1629054074366,
   "links": [],
   "panels": [
     {
@@ -493,7 +493,7 @@
           "color": {
             "mode": "thresholds"
           },
-          "decimals": 0,
+          "decimals": 3,
           "mappings": [
             {
               "options": {
@@ -513,10 +513,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -596,6 +592,12 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Influx-SenseHat",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "pressurembar"
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -691,9 +693,9 @@
       "yaxes": [
         {
           "$$hashKey": "object:25",
-          "decimals": null,
-          "format": "short",
-          "label": null,
+          "decimals": 3,
+          "format": "pressurembar",
+          "label": "",
           "logBase": 1,
           "max": "1020",
           "min": "990",
@@ -883,7 +885,7 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {
@@ -914,5 +916,5 @@
   "timezone": "browser",
   "title": "SenseHAT",
   "uid": "wSMs7Qekk",
-  "version": 26
+  "version": 27
 }
