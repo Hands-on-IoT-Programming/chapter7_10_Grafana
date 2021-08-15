@@ -17,32 +17,50 @@
   "gnetId": 4934,
   "graphTooltip": 0,
   "id": 4,
-  "iteration": 1613068798356,
+  "iteration": 1629026950627,
   "links": [],
   "panels": [
     {
       "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "#299c46",
-        "#299c46"
-      ],
       "datasource": "Influx-SenseHat",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 35,
+          "min": -20,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#299c46",
+                "value": null
+              },
+              {
+                "color": "#299c46",
+                "value": 33
+              },
+              {
+                "color": "#299c46",
+                "value": 33
+              }
+            ]
+          },
+          "unit": "celsius"
         },
         "overrides": []
-      },
-      "format": "celsius",
-      "gauge": {
-        "maxValue": 35,
-        "minValue": -20,
-        "show": true,
-        "thresholdLabels": false,
-        "thresholdMarkers": false
       },
       "gridPos": {
         "h": 7,
@@ -53,38 +71,21 @@
       "id": 8,
       "interval": null,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": false,
+        "text": {}
       },
-      "tableColumn": "",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [
@@ -123,19 +124,9 @@
           "tags": []
         }
       ],
-      "thresholds": "33,33",
       "title": "Temperature:",
       "transparent": true,
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
+      "type": "gauge"
     },
     {
       "aliasColors": {},
@@ -143,12 +134,6 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Influx-SenseHat",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -176,7 +161,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "8.0.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -222,44 +207,6 @@
             ]
           ],
           "tags": []
-        },
-        {
-          "groupBy": [
-            {
-              "params": [
-                "10s"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "sense_hat_avg",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"temperature\") FROM \"sense_hat_avg\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
-          "rawQuery": false,
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "temperature"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
         }
       ],
       "thresholds": [],
@@ -283,15 +230,17 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:183",
           "decimals": null,
           "format": "short",
           "label": "",
           "logBase": 1,
-          "max": "30",
+          "max": "35",
           "min": "15",
           "show": true
         },
         {
+          "$$hashKey": "object:184",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -307,27 +256,45 @@
     },
     {
       "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "#299c46",
-        "#299c46"
-      ],
       "datasource": "Influx-SenseHat",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#299c46",
+                "value": null
+              },
+              {
+                "color": "#299c46",
+                "value": 33
+              },
+              {
+                "color": "#299c46",
+                "value": 33
+              }
+            ]
+          },
+          "unit": "short"
         },
         "overrides": []
-      },
-      "format": "short",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": true,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
       },
       "gridPos": {
         "h": 7,
@@ -338,38 +305,21 @@
       "id": 10,
       "interval": null,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
       },
-      "tableColumn": "",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [
@@ -408,19 +358,9 @@
           "tags": []
         }
       ],
-      "thresholds": "33,33",
       "title": "Humidity:",
       "transparent": true,
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "avg"
+      "type": "gauge"
     },
     {
       "aliasColors": {},
@@ -428,12 +368,6 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Influx-SenseHat",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -461,7 +395,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "8.0.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -553,28 +487,42 @@
     },
     {
       "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "#299c46",
-        "#299c46"
-      ],
       "datasource": "Influx-SenseHat",
-      "decimals": 0,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 1100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pressurembar"
         },
         "overrides": []
-      },
-      "format": "pressurembar",
-      "gauge": {
-        "maxValue": 1100,
-        "minValue": 0,
-        "show": true,
-        "thresholdLabels": false,
-        "thresholdMarkers": false
       },
       "gridPos": {
         "h": 6,
@@ -585,38 +533,21 @@
       "id": 12,
       "interval": null,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": false,
+        "text": {}
       },
-      "tableColumn": "",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [
@@ -655,19 +586,9 @@
           "tags": []
         }
       ],
-      "thresholds": "",
       "title": "Pressure:",
       "transparent": true,
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "avg"
+      "type": "gauge"
     },
     {
       "aliasColors": {},
@@ -675,12 +596,6 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Influx-SenseHat",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -708,7 +623,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "8.0.6",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -775,6 +690,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:25",
           "decimals": null,
           "format": "short",
           "label": null,
@@ -784,6 +700,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:26",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -798,8 +715,8 @@
       }
     }
   ],
-  "refresh": "10s",
-  "schemaVersion": 26,
+  "refresh": "5s",
+  "schemaVersion": 30,
   "style": "dark",
   "tags": [
     "SenseHAT",
@@ -816,6 +733,7 @@
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
+        "description": null,
         "error": null,
         "hide": 0,
         "label": null,
@@ -917,6 +835,7 @@
         },
         "datasource": "Influx-SenseHat",
         "definition": "SELECT location FROM sense_hat",
+        "description": null,
         "error": null,
         "hide": 0,
         "includeAll": false,
@@ -930,7 +849,6 @@
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -944,6 +862,7 @@
         },
         "datasource": "Influx-SenseHat",
         "definition": "SELECT room FROM sense_hat",
+        "description": null,
         "error": null,
         "hide": 0,
         "includeAll": false,
@@ -957,7 +876,6 @@
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -965,7 +883,7 @@
     ]
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -996,5 +914,5 @@
   "timezone": "browser",
   "title": "SenseHAT",
   "uid": "wSMs7Qekk",
-  "version": 15
+  "version": 26
 }
